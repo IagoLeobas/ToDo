@@ -11,12 +11,42 @@ function App() {
   const [todos, setTodos] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  // Load todos on page load
+  useEffect(() => {
+    const loadData = async () => {
+      setLoading(true)
+
+      const res = await fetch(API + "/todos")
+        .then((res) => res.json())
+        .then((data) => data)
+        .catch((err) => console.log(err));
+
+      setLoading(false);
+      setTodos(res);
+    };
+    loadData();
+  }, []);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log(title)
+    const todo = {
+      id: Math.random(),
+      title,
+      time,
+      done: false,
+    }
+
+    await fetch(API + "/todos", {
+      method: "POST",
+      body: JSON.stringify(todo),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
     setTitle("")
-    console.log("Enviou!")
+    setTime("")
   }
 
   return (
@@ -31,15 +61,29 @@ function App() {
           <div className='form-control'>
             <label htmlFor='title'>Digite sua tarefa</label>
             <input type='text' name='title' placeholder='Título da tarefa'
-              onChange={(e) => setTitle(e.target.value)} value={title || ""} required></input>
+              onChange={(e) => setTitle(e.target.value)} value={title || ""}
+              required></input>
           </div>
-          <input type='submit' value='Enviar'></input>
+
+          <div className='form-control'>
+            <label htmlFor='time'>Duração</label>
+            <input type='text' name='time' placeholder='Tempo estimado (em horas)'
+              onChange={(e) => setTime(e.target.value)} value={time || ""}
+              required></input>
+          </div>
+
+          <input type='submit' value='Criar Tarefa'></input>
         </form>
       </div>
 
       <div className='list-todo'>
         <h2>Lista de tarefas:</h2>
         {todos.length === 0 && <p>Não há tarefas</p>}
+        {todos.map((todo) => (
+          <div className='todo' key={todo.id}>
+            <p>{todo.title}</p>
+          </div>
+        ))}
       </div>
     </div>
   );
