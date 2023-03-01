@@ -28,6 +28,7 @@
 
 .form-todo h2,
 .list-todo h2 {
+  font-weight: 400;
   text-align: center;
   margin: top 0;
 }
@@ -41,7 +42,7 @@
 .form-control label {
   font-family: Work Sans;
   font-size: 0.9rem;
-  font-weight: 800;
+  font-weight: 400;
   color: #000000c0;
 }
 
