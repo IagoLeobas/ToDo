@@ -57,6 +57,8 @@
 
 .form-control input:hover {
   background-color: #eeeeee75;
+  transition: background-color 0.2s ease;
+  transition-delay: 0.2s;
 }
 
 .form-control input:focus-visible {
@@ -81,6 +83,8 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
   background-color: #6b63fff1;
+  transition: background-color 0.2s ease;
+  transition-delay: 0.2s;
 }
 
 .list-todo {
