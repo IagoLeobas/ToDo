@@ -1,12 +1,6 @@
 {
   "todos": [
     {
-      "id": 0.024059307072436642,
-      "title": "teste",
-      "time": "1",
-      "done": true
-    },
-    {
       "id": 0.349084614304497,
       "title": "nova tarefa",
       "time": "2",
@@ -16,6 +10,12 @@
       "id": 0.2916399510761081,
       "title": "nova tarefa",
       "time": "3",
+      "done": true
+    },
+    {
+      "id": 0.9839181862078004,
+      "title": "Fazer compras",
+      "time": "2",
       "done": false
     }
   ]

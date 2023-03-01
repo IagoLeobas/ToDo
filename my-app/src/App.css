@@ -16,6 +16,8 @@
 
 .todo-header h1 {
   margin: 1;
+  color: #635EF2;
+  text-shadow: 1px 1px 1px #0000001c;
 }
 
 .form-todo {
@@ -37,12 +39,14 @@
 }
 
 .form-control label {
-  font-size: 0.75rem;
-  font-weight: 600;
+  font-family: Work Sans;
+  font-size: 0.9rem;
+  font-weight: 800;
   color: #000000c0;
 }
 
 .form-control input {
+  font-family: Work Sans;
   margin: 0.6rem 0;
   padding: 0.8rem 1.2rem;
   border: none;
@@ -59,8 +63,8 @@
   outline: 1px solid #635EF2;
 }
 
-
 input[type="submit"] {
+  font-family: Work Sans;
   width: 100%;
   margin-top: 0.5rem;
   margin-bottom: 0.9rem;
